@@ -109,5 +109,15 @@ $(function () {
 
   labelContainer[22].childNodes[0].innerHTML = t;
   labelContainer[24].childNodes[0].innerHTML = t;
+  document.querySelector("#title_description_short").onclick = () => {
+    // 弹出框询问是否清理
+    if (confirm("是否清理数据？")) {
+      localStorage.clear();
+      location.reload();
+    }
+  };
+  document.querySelectorAll("a").forEach((item) => {
+    item.removeAttribute("href");
+  });
   console.log("end");
 });
