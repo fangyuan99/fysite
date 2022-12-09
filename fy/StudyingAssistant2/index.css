@@ -1,0 +1,39 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    cursor: default !important
+}
+
+body,
+html {
+    background-color: #fff;
+    font-family: PingFangSC-Light, Nunito, sans-serif;
+    height: 100vh;
+    margin: 0 8px;
+    line-height: 1.75em
+}
+
+h1 {
+    font-size: 24px;
+    padding: 10px 0 0
+}
+
+h2 {
+    font-size: 22px;
+    padding: 10px 0 0
+}
+
+p,li {
+    font-size: 16px;
+    padding: 10px 0 0
+}
+
+.author {
+    font-size: 12px;
+    color: #999;
+    font-size: 14px
+}
+
+.article {
+    margin: 0 auto;
+    max-width: 677px
+}

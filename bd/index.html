@@ -23,9 +23,15 @@
       charset="utf-8"
       src="chrome-extension://pngicgippofneelinabebobnkpmdiphn/js/chrome.js"
     ></script>
-    <style src="baidu2.css" type="text/css"></style>
+    <style src="baidu.css" type="text/css"></style>
     <meta name="ljjc::status" content="on" />
     <style>
+      code{
+        background-color: #4e6ef2;
+        color: white;
+        padding: 3px;
+        border-radius: 3px;
+      }
       .swal2-popup.swal2-toast {
         flex-direction: row;
         align-items: center;
@@ -1701,10 +1707,14 @@
               </div>
               <div class="con-wrap new-search-con">
                 <div class="con-inner-left">
-                  <div>
+                  <div style="	  display: table-cell;
+                  vertical-align: middle;">
                     <img
                       src="./img/baidu.png"
-                      style="width: 80%; /* height: 100%; */"
+                      style="width: 80%; /* height: 100%; */
+                      /* 在父元素中上下居中 */
+                      margin: auto;
+                      "
                     />
                   </div>
                   <input
@@ -2159,10 +2169,17 @@
     <button onclick="save()">保存截图</button>
   </div>
     <div class="info" style="margin: 10px; padding: 10px ;"> 
-      <h1>使用说明</h1>
-
-      <h4 style="text-align: left ; margin-top: 10px;">在搜索框内输入任意内容如:"世界上最帅的男人"，再在保存按钮左边的输入框输入任意内容如："作者大大"最后自己截图或者点击保存按钮分享出去就可以啦!!!</h4>
+      <h2>使用说明</h2>
+      <ol>
+      <li style="text-align: left ; margin-top: 10px;">在搜索框内输入任意内容如:<code>世界上最帅的男人</code></li>
+      <li style="text-align: left ; margin-top: 10px;">在保存按钮左边的输入框输入任意内容如：<code>作者大大</code></li>
+      <li style="text-align: left ; margin-top: 10px;">最后自己截图或者点击保存按钮分享出去就可以啦!!!</li>
+    </ol>
     </div>
+    <h2>示例</h2>
+
+    <img src="./img/example.png" alt="示例图片" style="width: 98vw;max-width: 600px;border: 2px solid #000;">
+
     <script>
       const { createApp } = Vue
       //id为main
@@ -2200,7 +2217,6 @@
   </div>
 
   <script src="./js/html2canvas.min.js"></script>
-
 
 
 

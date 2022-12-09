@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- 引入css和js -->
+    <link rel="stylesheet" href="./StudyingAssistant2/index.css">
+    <script src="./StudyingAssistant2/marked.min.js"></script>
+
+    <title>about</title>
+</head>
+
+<body>
+    <div class="article">
+        <h1>关于学习小助手Green的一些说明</h1>
+        <div class="author">
+            <a>From 胡伊斐</a> <span>2022-5-5 00:31:38</span>
+        </div>
+        <div>
+            <div id="content">
+            </div>
+        </div>
+    </div>
+    <script>
+        let text = `
+## 0.为什么会有这个项目？
+
+这个项目是我的毕业设计项目，由于准备研究生入学考试复试，所以没有画太多时间打磨就匆匆上线了。
+
+## 1.有什么功能？
+
+1. 可以添加todo任务，并自定义完成状态
+2. 可以添加倒数日，默认添加了2023考研和2022高考，不需要的左滑删除即可
+3. 专注模式，退出或隐藏界面失效(统计功能只有登陆可以用，可以统计最近一周和一个月内的专注时间)
+4. 碎片时间功能，可以用来学习随机诗词，并可以收藏
+5. 注册登录，验证码登陆(成本考虑，默认为123456)，微信一键登陆
+6. 数据云端同步，若没有登陆则本地存储
+
+## 2.未来可能有什么功能？
+
+1. 短时间内可以木有更新，只会修bug
+
+## 3.用到的技术及开源项目？
+
+1. 主要采用的是uni-app配合unicloud云开发，省去了配置服务器的烦恼
+2. 用到了uni-starter插件
+3. uViewUI框架:[官网](https://www.uviewui.com/)
+4. color-ui框架:[官网](http://demo.color-ui.com/h5.html#/)
+
+## 3.其他问题？
+
+1. 待更新
+
+
+    `
+        document.getElementById('content').innerHTML =
+            marked.parse(text);
+    </script>
+</body>
+
+</html>
