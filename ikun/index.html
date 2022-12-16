@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="/path/to/tailwind.css" rel="stylesheet">
+ -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- 引用./img/beams.jpg，作为背景图片，可重复 -->
+    <img
+      src="./img/beams.jpg"
+      alt=""
+      style="
+        background-repeat: repeat;
+        background-size: 100% 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      "
+    />
+    <div>
+      <h1
+        class="text-xl font-medium text-gray-500 mx-auto text-center"
+        id="ikun"
+      >
+        IKUN
+      </h1>
+    </div>
+    <div
+      class="mb-10 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+    >
+      <img
+        class="block mx-auto h-24 rounded-b-2xl sm:mx-0 sm:flex-shrink-0"
+        src="https://res.remeins.com/resimg/2022/cd71184f9989c66b41df91c756ec5312/ab5cbdb46066b1f88183009ddfc81b09.jpg"
+        alt="Woman's Face"
+      />
+      <div class="text-center space-y-2 sm:text-left">
+        <div class="space-y-0.5">
+          <p class="text-lg text-black font-semibold">IKUN99</p>
+          <p class="text-gray-500 font-medium">守护世界上最好的坤坤</p>
+        </div>
+        <button
+          class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+          onclick="showLove()"
+        >
+          打Call
+        </button>
+      </div>
+    </div>
+    <div
+      class="mb-10 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+    >
+      <img
+        class="block mx-auto h-24 rounded-b-2xl sm:mx-0 sm:flex-shrink-0"
+        src="https://res.remeins.com/resimg/2022/cd71184f9989c66b41df91c756ec5312/c3c43e0fa192aba467bfe206d86c5dd8.jpg"
+        alt="Woman's Face"
+      />
+      <div class="text-center space-y-2 sm:text-left">
+        <div class="space-y-0.5">
+          <p class="text-lg text-black font-semibold">IKUN名单</p>
+
+          <ul class="md:list-disc lg:list-disc xl:list-disc">
+            <li class="text-gray-500 font-medium">张三</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mb-10 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+    >
+      <img
+        class="block mx-auto h-24 rounded-b-2xl sm:mx-0 sm:flex-shrink-0"
+        src="https://res.remeins.com/resimg/2022/cd71184f9989c66b41df91c756ec5312/029f6804908de13c1a67af24ecd2b25d.jpg"
+        alt="Woman's Face"
+      />
+      <div class="text-center space-y-2 sm:text-left">
+        <div class="space-y-0.5">
+          <p class="text-lg text-black font-semibold">小黑子名单</p>
+
+          <ul class="md:list-disc lg:list-disc xl:list-disc">
+            <li class="text-gray-500 font-medium">李四</li>
+            <li class="text-gray-500 font-medium">王五</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <audio id="myAudio" src="./music/call.mp3"></audio>
+
+     <script>
+      // 将域名赋值给id为ikun的元素，去掉了域名的http://或者https://
+      document.querySelector("#ikun").innerHTML = window.location.host.replace(
+        /(^\w+:|^)\/\//,
+        ""
+      );
+      function showLove(node) {
+        //开始播放音乐
+        var audioElement = document.getElementById('myAudio');
+        // 如果正在播放，就重新开始播放，否则就播放
+        if (audioElement.paused) {
+          audioElement.play();
+        } else {
+          audioElement.currentTime = 0;
+        }
+        // audioElement.play();
+       // 找到第一个img的坐标
+        var x = document
+          .querySelectorAll("img")[1]
+          .getBoundingClientRect().left;
+        var y = document.querySelectorAll("img")[1].getBoundingClientRect().top;
+        //使用svg绘制爱心
+        var love = document.createElement("div");
+        love.innerHTML = `
+        <svg t="1671111108792" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4716" width="200" height="200"><path d="M735.578585 69.309046c-87.370831 0-169.314462 42.669292-223.578585 114.049969-54.272-71.3728-136.215631-114.049969-223.586462-114.049969C129.386338 69.309046 0 208.139815 0 378.7776c0 280.670523 310.791877 471.441723 444.416 540.427815a148.220062 148.220062 0 0 0 68.017231 16.478523c23.071508 0 46.135138-5.356308 67.182277-16.068923C713.231754 851.637169 1024 662.850954 1024 378.7776c0-170.637785-129.386338-309.468554-288.421415-309.468554z" fill="#f5fdb2" p-id="4717" data-spm-anchor-id="a313x.7781069.0.i2" class="selected"></path></svg>
+        `;
+        var svg = love.querySelector("svg");
+        // x,y分别减去svg的宽高的一半，使爱心的中心点在img的中心点
+        x -= svg.width.animVal.value / 2;
+        y -= svg.height.animVal.value / 4;
+        // console.log(svg.width.animVal.value);
+        love.style.cssText = `z-index:9999;position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;`;
+
+        var fa = document.createElement("div");
+        fa.style.cssText = `width:20px;height:10px;position:fixed;top:0px;left:0px;margin-top:-10px;margin-left:-10px;opacity:0;pointer-events:none;`;
+        fa.style.transform = "scale(0.1) rotate(45deg)";
+        // 将fa移动到第一张img的上方
+        fa.appendChild(love);
+        var i = document.querySelectorAll("div")[0];
+        i.appendChild(fa);
+        setTimeout(function () {
+          fa.style.cssText = `width:20px;height:10px;position:fixed;top:${y}px;left:${x}px;margin-top:-10px;margin-left:-10px;opacity:1;transform:scale(1.5);transition:all 1s;pointer-events:none;`;
+          setTimeout(function () {
+            fa.style.cssText = `width:20px;height:10px;position:fixed;top:${y}px;left:${x}px;margin-top:-10px;margin-left:-10px;opacity:0;transition:all 1s;pointer-events:none;`;
+            fa.style.transform = "scale(0.1) rotate(45deg)";
+            setTimeout(function () {
+              i.removeChild(fa);
+            }, 1000);
+          }, 1000);
+        }, 0);
+      }
+    </script>
+  </body>
+</html>
