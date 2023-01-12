@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <script>
         //跳转到ikun
             window.location.href = "./ikun";
     </script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" src="favicon.ico">
+    <title>方源的个人网站</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Hello Github.io</h1>
+    <h1 style="text-align: center;">Hello fangyuan99.github.io</h1>
+    <!-- <h2 style="text-align: center;">网站列表:</h2> -->
+    <ul style="margin:0 auto;
+    text-align:center">
+
+    </ul>
+    <script>
+        var list =[{'url': 'https://ikun99.cf/bd', 'title': '百度一下'}, {'url': 'https://ikun99.cf/bilipages', 'title': '哔哩哔哩多分p视频检索'}, {'url': 'https://ikun99.cf/fy', 'title': '方源的个人网站'}, {'url': 'https://ikun99.cf/ikun', 'title': '厉不厉害你坤哥'}, {'url': 'https://ikun99.cf/mj', 'title': '麻将麻将计分!!!'}, {'url': 'https://ikun99.cf/qj', 'title': '华南师范大学统一身份验证登录'}, {'url': 'https://ikun99.cf/tz', 'title': '健身数据记录'}, {'url': 'https://ikun99.cf/vue', 'title': 'Vite App'}, {'url': 'https://ikun99.cf/wallhaven', 'title': 'wallhaven-nsfw'}];
+        //遍历list，给ul添加li，li里面是a标签，a标签里面是h3标签，a的href是list里面的url，h3的内容是list里面的title
+        for (var i = 0; i < list.length; i++) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            var h3 = document.createElement('h3');
+            a.href = list[i].url;
+            h3.innerHTML = list[i].title;
+            a.appendChild(h3);
+            li.appendChild(a);
+            document.getElementsByTagName('ul')[0].appendChild(li);
+        }
+    </script>
 </body>
 </html>
