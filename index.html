@@ -2,21 +2,25 @@
 <html>
 <head>
     <script>
-        //跳转到ikun
+        //若域名里有ikun,跳转到ikun,有fy跳转到fy
+        if (window.location.href.indexOf("ikun") != -1) {
             window.location.href = "./ikun";
+        } else if (window.location.href.indexOf("fy") != -1) {
+            window.location.href = "./fy";
+        }
     </script>
     <link rel="icon" src="favicon.ico">
     <title>方源的个人网站</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Hello fangyuan99.github.io</h1>
+    <h1 style="text-align: center;">Welcome to fangyuan99's website</h1>
     <!-- <h2 style="text-align: center;">网站列表:</h2> -->
     <ul style="margin:0 auto;
     text-align:center">
 
     </ul>
     <script>
-        var list =[{'url': 'https://ikun99.cf/bd', 'title': '百度一下'}, {'url': 'https://ikun99.cf/bilipages', 'title': '哔哩哔哩多分p视频检索'}, {'url': 'https://ikun99.cf/fy', 'title': '方源的个人网站'}, {'url': 'https://ikun99.cf/ikun', 'title': '厉不厉害你坤哥'}, {'url': 'https://ikun99.cf/mj', 'title': '麻将麻将计分!!!'}, {'url': 'https://ikun99.cf/qj', 'title': '华南师范大学统一身份验证登录'}, {'url': 'https://ikun99.cf/tz', 'title': '健身数据记录'}, {'url': 'https://ikun99.cf/vue', 'title': 'Vite App'}, {'url': 'https://ikun99.cf/wallhaven', 'title': 'wallhaven-nsfw'}];
+        var list =[{'url': './bd', 'title': '百度一下'}, {'url': './bilipages', 'title': '哔哩哔哩多分p视频检索'}, {'url': './fy', 'title': '方源的个人网站'}, {'url': './ikun', 'title': '厉不厉害你坤哥'}, {'url': './mj', 'title': '麻将麻将计分!!!'}, {'url': './qj', 'title': '华南师范大学统一身份验证登录'}, {'url': './tz', 'title': '健身数据记录'}, {'url': './vue', 'title': 'Vite App'}, {'url': './wallhaven', 'title': 'wallhaven-nsfw'}];
         //遍历list，给ul添加li，li里面是a标签，a标签里面是h3标签，a的href是list里面的url，h3的内容是list里面的title
         for (var i = 0; i < list.length; i++) {
             var li = document.createElement('li');

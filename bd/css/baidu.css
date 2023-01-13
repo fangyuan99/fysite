@@ -9881,3 +9881,7 @@ a.sugdir-vs {
 #personal-center {
   display: none;
 }
+#app{
+  max-width: 500px;
+  margin: 0 auto;
+}
