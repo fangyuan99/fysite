@@ -120,18 +120,25 @@
         methods: {
           async fetchData() {
             this.loading = true;
+            const url = "http://localhost:9528/cjcx";
             try {
-              const response = await axios.post("http://localhost:9528/cjcx", {
+              const response = await axios.post(url, {
                 account: this.account,
                 password: this.password,
               });
               const data = response.data;
+              if (data.status !== 0) {
+                alert(data.msg);
+                this.loading = false;
+                return;
+              }
               this.tableData = data.tableData;
               this.name = data.name;
               this.calculateAvgScore();
             } catch (error) {
               // loading.close();
               console.log(error);
+              alert("查询失败，请检查网络后重试，或者等待管理员修复！");
             }
             this.loading = false;
           },
