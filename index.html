@@ -1,37 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <script>
-        //若域名里有ikun,跳转到ikun,有fy跳转到fy
-        if (window.location.href.indexOf("ikun") != -1) {
-            window.location.href = "./ikun";
-        } else if (window.location.href.indexOf("fy") != -1) {
-            window.location.href = "./fy";
-        }
-    </script>
-    <link rel="icon" src="favicon.ico">
-    <title>方源的个人网站</title>
-</head>
-<body>
-    <h1 style="text-align: center;">Welcome to fangyuan99's website</h1>
-    <!-- <h2 style="text-align: center;">网站列表:</h2> -->
-    <ul style="margin:0 auto;
-    text-align:center">
-
-    </ul>
-    <script>
-        var list =[{'url': './bd', 'title': '百度一下'}, {'url': './bilipages', 'title': '哔哩哔哩多分p视频检索'}, {'url': './fy', 'title': '方源的个人网站'}, {'url': './ikun', 'title': '厉不厉害你坤哥'}, {'url': './mj', 'title': '麻将麻将计分!!!'}, {'url': './qj', 'title': '华南师范大学统一身份验证登录'}, {'url': './tz', 'title': '健身数据记录'}, {'url': './vue', 'title': 'Vite App'}, {'url': './wallhaven', 'title': 'wallhaven-nsfw'}];
-        //遍历list，给ul添加li，li里面是a标签，a标签里面是h3标签，a的href是list里面的url，h3的内容是list里面的title
-        for (var i = 0; i < list.length; i++) {
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            var h3 = document.createElement('h3');
-            a.href = list[i].url;
-            h3.innerHTML = list[i].title;
-            a.appendChild(h3);
-            li.appendChild(a);
-            document.getElementsByTagName('ul')[0].appendChild(li);
-        }
-    </script>
-</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+    <script type="module" crossorigin src="/assets/index-e46b9642.js"></script>
+    <link rel="stylesheet" href="/assets/index-a702dc09.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    
+  </body>
 </html>

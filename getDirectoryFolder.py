@@ -1,6 +1,7 @@
 import os
 import requests
 import re
+from bs4 import BeautifulSoup
 def getDirectoryFolder():
     #获取当前路径下所有的文件夹，并返回一个列表，除了隐藏的文件夹
     return [x for x in os.listdir('.') if os.path.isdir(x) and not x.startswith('.')]
@@ -9,17 +10,33 @@ def getUrlList():
     folderList = getDirectoryFolder()
     urlList = []
     for folder in folderList:
-        baseUrl='https://ikun99.cf/'
+        baseUrl='http://ikun99.cf/'
         url = baseUrl+folder
         title = ''
         # 获取url的标题
         try:
             resp = requests.get(url)
-            title = re.findall('<title>(.*?)</title>',resp.text)[0]
+            soup = BeautifulSoup(resp.text,'html.parser')
+            title = soup.title.string
+            icon = soup.find('link',rel='icon')['href']
         except:
-            title = '网页标题获取失败'
-        urlList.append({'url':url,'title':title})
-        print({'url':url,'title':title})
+            icon = url+'/favicon.ico'
+        # 如果icon中没有/,则拼接url
+        if icon.find('/') == -1 or icon.find('./') != -1 or icon == 'favicon.ico':
+            icon = url+'/'+icon
+
+        urlList.append({
+            'icon':icon,
+            'link':url,
+            'name':title,
+            'description':''
+            })
+        print({
+            'icon':icon,
+            'link':url,
+            'name':title,
+            'description':''
+            })
     return urlList
 
 if __name__ == '__main__':
