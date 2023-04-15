@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ChatGPT 镜像分享</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
+      rel="stylesheet"
+    ></link>
+    <script src="https://cdn.bootcss.com/marked/0.8.1/marked.min.js"></script>
+    <style>
+        /* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Link styles */
+a {
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+    </style>
+  </head>
+  <body class="bg-gray-200">
+    <div class="container mx-auto py-10">
+      <h1 class="text-4xl text-center font-bold mb-10">ChatGPT 镜像分享</h1>
+      <div class="bg-gray-100 text-center py-2">
+  <span class="text-gray-600">来源:</span>
+  <a href="https://github.com/runningcheese/Awesome-ChatGPT" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold ml-1 hover:underline">https://github.com/runningcheese/Awesome-ChatGPT</a>
+</div>
+
+      <div class="bg-white rounded-lg p-4">
+        <h2 class="text-2xl font-bold">2.1 镜像网站</h2>
+        
+        <div class="mirrorWebsite"></div>
+      </div>
+    </div>
+    <script>
+      fetch("https://gcore.jsdelivr.net/gh/runningcheese/Awesome-ChatGPT/README.md")
+        .then((response) => response.text())
+        .then((text) => {
+          let md = text;
+          let mirrorWebsite = "";
+          let integratedApp = "";
+          let foundMirrorWebsite = false;
+          let foundIntegratedApp = false;
+          // 解析Markdown文档，找到2.1、镜像网站到###之间的内容
+          md=md.split('镜像网站')[1].split("###")[0]
+            // 将Markdown文档转换为HTML
+            mirrorWebsite = marked(md);
+            integratedApp = marked(integratedApp);
+            document.querySelector('.mirrorWebsite').innerHTML = mirrorWebsite;
+        })
+        .catch((error) => console.log(error));
+    </script>
+  </body>
+</html>
