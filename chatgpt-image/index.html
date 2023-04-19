@@ -12,37 +12,37 @@
     <script src="https://cdn.bootcss.com/marked/0.8.1/marked.min.js"></script>
     <style>
         /* Table styles */
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
 
-table th,
-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-}
+        table th,
+        table td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: left;
+        }
 
-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
+        table th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
 
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+        table tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
 
-/* Link styles */
-a {
-  color: #3182ce;
-  text-decoration: none;
-  font-weight: bold;
-}
+        /* Link styles */
+        a {
+          color: #3182ce;
+          text-decoration: none;
+          font-weight: bold;
+        }
 
-a:hover {
-  text-decoration: underline;
-}
+        a:hover {
+          text-decoration: underline;
+        }
 
     </style>
   </head>
@@ -64,7 +64,7 @@ a:hover {
       </div>
     </div>
     <script>
-      fetch("https://gcore.jsdelivr.net/gh/runningcheese/Awesome-ChatGPT/README.md")
+      fetch("https://raw.gitmirror.com/runningcheese/Awesome-ChatGPT/main/README.md")
         .then((response) => response.text())
         .then((text) => {
           let md = text;
