@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>骰子游戏</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+      <h1 class="text-4xl font-bold mb-8 text-center">骰子游戏</h1>
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">骰子区域</h2>
+          <div id="dice-container" class="grid grid-cols-4 gap-4"></div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">操作区域</h2>
+          <div class="space-y-4">
+            <div>
+              <label for="dice-count" class="block mb-2">骰子数量:</label>
+              <input
+                type="number"
+                id="dice-count"
+                class="block w-full py-2 px-3 border border-gray-300 rounded-md"
+                placeholder="输入骰子数量"
+                min="1"
+              />
+            </div>
+            <button
+              id="reset-button"
+              class="w-full bg-blue-600 text-white py-2 px-4 rounded-md"
+            >
+              重玩
+            </button>
+            <div>
+              <label for="dice-value" class="block mb-2">统计点数:</label>
+              <input
+                type="number"
+                id="dice-value"
+                class="block w-full py-2 px-3 border border-gray-300 rounded-md"
+                placeholder="输入点数"
+                min="1"
+                max="6"
+              />
+            </div>
+            <p id="result" class="text-xl"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 使用 JavaScript 实现游戏逻辑
+      const diceContainer = document.getElementById("dice-container");
+      const diceCountInput = document.getElementById("dice-count");
+      const resetButton = document.getElementById("reset-button");
+      const diceValueInput = document.getElementById("dice-value");
+      const result = document.getElementById("result");
+
+      function createDice() {
+        const dice = document.createElement("div");
+        dice.className =
+          "w-16 h-16 bg-white border border-gray-300 rounded-md flex items-center justify-center text-xl font-bold";
+        dice.textContent = Math.ceil(Math.random() * 6);
+        return dice;
+      }
+
+      function updateDiceCount() {
+        const count = parseInt(diceCountInput.value);
+        if (!isNaN(count) && count > 0) {
+          diceContainer.innerHTML = "";
+          for (let i = 0; i < count; i++) {
+            diceContainer.appendChild(createDice());
+          }
+        }
+      }
+
+      function resetDice() {
+        const diceElements = diceContainer.querySelectorAll("div");
+        diceElements.forEach((dice) => {
+          dice.textContent = Math.ceil(Math.random() * 6);
+        });
+      }
+
+      function countDiceValues() {
+        const targetValue = parseInt(diceValueInput.value);
+        if (!isNaN(targetValue) && targetValue >= 1 && targetValue <= 6) {
+          const diceElements = diceContainer.querySelectorAll("div");
+          let count = 0;
+          diceElements.forEach((dice) => {
+            const value = parseInt(dice.textContent);
+            if (value === targetValue || value === 1) {
+              count++;
+            }
+          });
+          result.textContent = `有 ${count} 个骰子的点数为 ${targetValue} (包括1)`;
+        }
+      }
+
+      diceCountInput.addEventListener("input", updateDiceCount);
+      resetButton.addEventListener("click", resetDice);
+      diceValueInput.addEventListener("input", countDiceValues);
+    </script>
+  </body>
+</html>

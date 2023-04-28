@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!-- 必须的 meta 标签 -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-ft=no"
+    />
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- 导入Tailwind.css样式表 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.4/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="https://img2.baidu.com/it/u=1384816866,4245624647&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
+    />
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus/dist/index.css"
+    />
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus"></script>
+
+    <!-- 网页样式 -->
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #fff;
+        background-image: url("https://www.todaybing.com/api/today/cn");
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #ff6b6b;
+      }
+
+      .text-pink {
+        color: #ff6b6b;
+      }
+
+      .border-pink {
+        border-color: #ff6b6b;
+      }
+
+      .bg-purple {
+        background-color: #6c63ff;
+        color: #fff;
+      }
+
+      h1,
+      h3,
+      .leading-tight {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      #heart {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+
+      #timespan {
+        font-weight: bold;
+      }
+
+      .footer {
+        color: #8d99a6;
+        font-size: 0.875rem;
+        margin-top: 4rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      @media screen and (max-width: 768px) {
+  /* 针对屏幕宽度小于 768px 的设备 */
+  .container {
+    max-width: 90%;
+    margin: 20px;
+  }
+
+  /* 其他组件的样式调整 */
+}
+
+    </style>
+
+    <title>一只大笨猪</title>
+  </head>
+
+  <body>
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold text-center">我的宝贝——余朝辉</h1>
+
+      <div class="flex items-center justify-center my-6">
+        <span id="timespan"></span>
+      </div>
+
+      <div id="app" class="max-w-xs mx-auto">
+        <div class="overflow-hidden border border-pink rounded-lg">
+          <el-image
+            class="block w-full"
+            :src="url"
+            :preview-src-list="srcList"
+          ></el-image>
+
+        </div>
+
+      </div>
+          <div class="text-center text-gray-200 text-xs">点击图片查看更多</div>
+
+      <h2 class="text-2xl font-bold uppercase leading-tight my-10 text-center">
+        大家好我是佩奇
+      </h2>
+      <div class="my-8 max-w-xs" style="margin: 0 auto;">
+         <div class="py-4 text-center bg-purple rounded-md">
+          <a
+            href="./zhuzhu.html"
+            class="text-white"
+            >猪猪艺术照</a
+          >
+        </div>
+        <div class="py-4 mt-4  text-center bg-purple rounded-md">
+          <a
+            target="_blank"
+            href="https://baike.baidu.com/item/%E5%B0%8F%E7%8C%AA%E4%BD%A9%E5%A5%87/12343674"
+            class="text-white"
+            >小猪佩奇百度百科</a
+          >
+        </div>
+
+        <div class="py-4 mt-4 text-center bg-purple rounded-md">
+          <a
+            target="_blank"
+            href="https://baike.baidu.com/item/%E8%B1%9A%E7%91%9E%E7%8E%8B/25246920?fr=aladdin"
+            class="text-white"
+            >猪猪的百度百科</a
+          >
+        </div>
+      </div>
+
+      <div class="mx-auto w-40">
+        <iframe
+          frameborder="no"
+          border="0"
+          marginwidth="0"
+          marginheight="0"
+          width="320"
+          height="86"
+          src="//music.163.com/outchain/player?type=2&id=518088873&auto=1&height=66"
+        ></iframe>
+      </div>
+
+      <footer class="footer">
+        <blockquote class="text-right">
+          <small
+            >——仅做学习交流，禁止用作商业用途<b
+              ><a target="_blank" href="http://ikun99.cf" class="text-pink"
+                >fangyuan99</a
+              ></b
+            ></small
+          >
+        </blockquote>
+      </footer>
+    </div>
+    <script>
+    
+  // 获取id为countup的div元素和包含在其中的heart与timespan span元素
+  var countup = document.getElementById("countup");
+  var timespan = document.getElementById("timespan");
+
+  // 指定开始计时的时间为2020年11月28日
+  var startDate = new Date("2022-6-8").getTime();
+
+  // 计算经过时间并更新显示
+  function updateTime() {
+    // 获取当前时间
+    var currentDate = new Date().getTime();
+
+    // 计算距离开始时间的毫秒数
+    var duration = currentDate - startDate;
+
+    // 计算状态时间的天、时、分、秒数
+    var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+
+    // 在id为timespan的span元素中显示经过时间
+    timespan.innerHTML = `&#10084;我们在一起已经 ${days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒"} 啦&#10084;`;
+
+  }
+
+  // 更新经过时间显示的计时器，每秒更新一次
+  var timer = setInterval(updateTime, 1000);
+  
+  // 初始加载执行一次计算并显示时间
+  updateTime(); 
+
+
+    </script>
+    <!-- JavaScript代码 -->
+    <script>
+      const App = {
+        data() {
+          return {
+            url: "./byzimg/34.jpg",
+            srcList: [],
+          };
+        },
+        mounted() {
+          let number = 44;
+          for (let i = 1; i <= number; i++) {
+            this.srcList.push("./byzimg/" + i + ".jpg");
+          }
+        },
+      };
+
+      //创建Vue 3对象并加载Element-Plus插件
+      const app = Vue.createApp(App);
+      app.use(ElementPlus);
+      app.mount("#app");
+
+    </script>
+  </body>
+</html>
