@@ -34,6 +34,7 @@
         background-color: #1e1e1e;
         color: #fff;
         background-image: url("https://www.todaybing.com/api/today/cn");
+        background-repeat: inherit;
       }
 
       h1,
@@ -147,7 +148,7 @@
         </div>
 
         <div class="py-4 mt-4 center  rounded-md">
-          <iframe
+          <!-- <iframe
           frameborder="no"
           border="0"
           marginwidth="0"
@@ -155,7 +156,10 @@
           width="320"
           height="86"
           src="//music.163.com/outchain/player?type=2&id=518088873&auto=1&height=66"
-        ></iframe>
+        ></iframe> -->
+        <audio id="audio" controls>
+          <source src="./tbdr.mp3" type="audio/mpeg">
+        </audio>
         </div>
       </div>
 
@@ -174,14 +178,16 @@
       </footer>
     </div>
     <script>
-    
+    var audio = document.getElementById("audio");
+  audio.autoplay = true;
+  audio.load();
   // 获取id为countup的div元素和包含在其中的heart与timespan span元素
   var countup = document.getElementById("countup");
   var timespan = document.getElementById("timespan");
 
   // 指定开始计时的时间为2020年11月28日
   var startDate = new Date("2022-6-8").getTime();
-
+    
   // 计算经过时间并更新显示
   function updateTime() {
     // 获取当前时间
