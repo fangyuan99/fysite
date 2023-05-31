@@ -73,7 +73,7 @@
           let foundMirrorWebsite = false;
           let foundIntegratedApp = false;
           // 解析Markdown文档，找到2.1、镜像网站到###之间的内容
-          md=md.split('镜像网站')[1].split("## 三、")[0]
+          md='二'+md.split('## 二')[1].split("## 四")[0]
             // 将Markdown文档转换为HTML
             mirrorWebsite = marked(md);
             integratedApp = marked(integratedApp);
