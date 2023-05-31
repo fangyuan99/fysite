@@ -18899,7 +18899,7 @@ var O4 = Eg((Ot, Tt) => {
   Xe.default = Xe;
   const fg = Xe,
     mi = fg.create({
-      baseURL: "http://47.113.228.237:9528/gpt_message_board/api",
+      baseURL: "https://api.fy99.ml/gpt_message_board/api",
       timeout: 3e3,
     }),
     dg = (e, t) => mi.post("/login", { username: e, password: t }),
