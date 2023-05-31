@@ -3568,14 +3568,14 @@ const Kn = (e) => (wi("data-v-37bdf63a"), (e = e()), vi(), e),
         {
           icon: "https://openai.com//favicon.ico",
           link: "./chatgpt-image",
-          name: "ChatGPT镜像分享",
+          name: "来自runningcheese的ChatGPT镜像分享",
           description: "支持Markdown语法",
         },
         {
           icon: "./txt2pic/favicon.svg",
           link: "./txt2pic",
           name: "在线文本转图片",
-          description: "来自runningcheese的ChatGPT镜像分享",
+          description: "ChatGPT镜像分享",
         },
         {
           icon: "./ikun/favicon.ico",
