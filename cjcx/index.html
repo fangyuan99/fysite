@@ -120,7 +120,8 @@
         methods: {
           async fetchData() {
             this.loading = true;
-            const url = "https://api.fy99.ml/scnu/api/cjcx";
+            const url =
+              "https://fyapi-fyapi-xtnyzhmgzs.cn-shenzhen.fcapp.run/scnu/api/cjcx";
             try {
               const response = await axios.post(url, {
                 account: this.account,
