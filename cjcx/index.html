@@ -94,6 +94,24 @@
         <el-divider></el-divider>
         <el-row>
           <el-col :span="8">平均成绩：<strong>{{ avgScore }}</strong></el-col>
+          <el-col :span="8"> <el-popover
+    placement="top-start"
+    trigger="hover"
+    width="200"
+    title="加权成绩计算过程"
+  >
+    <template #reference>
+      加权成绩：
+    </template>
+    <p v-for="item in weightedGradesDetail" :key="item">{{item}}</p>
+  </el-popover><strong>{{ weightedGrades }}</strong></el-col>
+          <h6>
+加权计算公式为（Σ每科成绩×对应学分）/总学分。<br/>
+(每科成绩*该科学分的总和/总学分，如 A 科成绩为 85，学分为 3，B 科成绩为 95，
+学分为 2，那么计算公式为(85*3+95*2)/(3+2)=89)。鼠标移动查看计算过程<br/>
+</h6>
+
+
         </el-row>
         <el-divider></el-divider>
         <el-row>
@@ -101,7 +119,7 @@
           <el-tag type="info" style="margin-left: 10px">请假</el-tag>
         </el-row>
         <el-row>
-          <h6>以上功能暂不开放</h6>
+          <h6>以上功能暂不开放(让它们消失吧)</h6>
         </el-row>
       </div>
     </div>
@@ -115,6 +133,8 @@
             password: "",
             name: "未登录",
             loading: false,
+            weightedGrades: null,
+            weightedGradesDetail: null,
           };
         },
         methods: {
@@ -155,6 +175,25 @@
             });
             const total = scores.reduce((acc, cur) => acc + cur, 0);
             this.avgScore = (total / count).toFixed(2);
+            //计算公式为（Σ每
+            // 科成绩×对应学分）/总学分。
+            // (每科成绩*该科学分的总和/总学分，如 A 科成绩为 85，学分为 3，B 科成绩为 95，
+            // 学分为 2，那么计算公式为(85*3+95*2)/(3+2)=89)。
+            var xuefen = 0;
+            var chengji = 0;
+            var weightedGradesDetail = []
+            this.tableData.forEach((item) => {
+              const score = parseFloat(item.考试成绩);
+              const xuefen1 = parseFloat(item.学分);
+              if (!isNaN(score)) {
+                chengji += score * xuefen1;
+                weightedGradesDetail.push(`${item.课程}:${score} * ${xuefen1} = ${score*xuefen1} `) 
+                xuefen += xuefen1;
+              }
+            });
+            weightedGradesDetail .push( `合计:${chengji} / ${xuefen} = ${chengji / xuefen}`)
+            this.weightedGradesDetail = weightedGradesDetail
+            this.weightedGrades = (chengji / xuefen).toFixed(2);
           },
         },
       });
