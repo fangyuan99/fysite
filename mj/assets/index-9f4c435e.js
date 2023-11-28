@@ -25277,7 +25277,8 @@ var oo = no((exports, module) => {
       setup(__props) {
         const isDark = useDark(),
           toggleDark = useToggle(isDark),
-          url = "https://api.fy99.eu.org/mj/api";
+          url = ((location.protocol === "http:") ? "http:" : "https:") + "//fyapi-fyapi-xtnyzhmgzs.cn-shenzhen.fcapp.run/mj/api";
+          console.log(url);
         let mahjongData = reactive({
             data: [],
             activeName: "",
